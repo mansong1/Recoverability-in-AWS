@@ -1,7 +1,7 @@
 [
     {
         "ParameterKey": "VpcName",
-        "ParameterValue": "primary"
+        "ParameterValue": "Primary"
     },
     {
         "ParameterKey": "VpcCIDR",
