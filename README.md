@@ -26,8 +26,8 @@ In order to build a VPC from the YAML file, we will use `create-stack.sh` locate
 
 1. In AWS Console go to Services -> CloudFormation
 2. Run `./create-stack.sh active vpc.yml primary.json us-west-1`
-3. Wait for the stack to build out.  Refresh until status becomes + CREATE_COMPLETE
-4. Observe the “Outputs” tab for the created IDs.  These will be used later.
+3. Wait for the stack to build out.  Refresh until status becomes ```html<p style="color:red">This is a paragraph.</p>```
+4. Observe the “Outputs” tab for the created IDs. These will be used later.
 5. Repeat for "standby" VPC `./create-stack.sh standby vpc.yml primary.json us-west-2`
 
 Once the CloudFormation Stack has completed, you can look at the "Resources" tab to see all of the AWS resources that the stack has created.  You can see both the type of resources that have been created, as well as the AWS identifiers for those resources so that you can locate these resources in the AWS service that they are a part of.
