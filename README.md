@@ -12,7 +12,7 @@ In this project, you will use the AWS CloudFormation to create Virtual Private C
 
 CloudFormation allows you to use a configuration file written in a YAML file to automate the creation of AWS resources such as VPCs. In this project, you will use a pre-made CloudFormation template to get you started. This will allow you to create some of the infrastructure that you'll need without spending a lot of time learning details that are beyond the scope of this course.
 
-You can find the YAML file in the repo: **cloudformation/vpc.yml**
+You can find the YAML file in the repo: **cloudformation/vpc.yml
 
 In order to build a VPC from the YAML file, we will use `create-stack.sh` located under the cloudformation folder which takes the following arguments:
 
@@ -26,9 +26,9 @@ In order to build a VPC from the YAML file, we will use `create-stack.sh` locate
 
 1. In AWS Console go to Services -> CloudFormation
 2. Run `./create-stack.sh active vpc.yml primary.json us-west-1`
-3. Wait for the stack to build out.  Refresh until status becomes ![#c5f015](CREATE_COMPLETE)
+3. Wait for the stack to build out.  Refresh until status becomes CREATE_COMPLETE
 4. Observe the “Outputs” tab for the created IDs.  These will be used later.
-5. Repeat for "standby" VPC `./create-stack.sh standby vpc.yml primary.json us-west-2`
+5. Repeat for "standby" VPC `./create-stack.sh standby vpc.yml secondary.json us-west-2`
 
 Once the CloudFormation Stack has completed, you can look at the "Resources" tab to see all of the AWS resources that the stack has created.  You can see both the type of resources that have been created, as well as the AWS identifiers for those resources so that you can locate these resources in the AWS service that they are a part of.
 
