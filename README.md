@@ -1,6 +1,6 @@
 # Data durability and recovery
 
-In this project you will create highly available solutions to common use cases.  You will build a Multi-AvailabilityZone, Multi-Region database and show how to use it in multiple geographically separate AWS regions.  You will also build a website hosting solution that is versioned so that any data destruction and accidents can be quickly and easily undone.
+In this project we will be creating highly available solutions to common use cases.  We will build a Multi-AvailabilityZone, Multi-Region database and show how to use it in multiple geographically separate AWS regions.  We will also build a website hosting solution that is versioned so that any data destruction and accidents can be quickly and easily undone.
 
 ## Getting Started
 
@@ -14,24 +14,21 @@ CloudFormation allows you to use a configuration file written in a YAML file to 
 
 You can find the YAML file in the GitHub repo: https://github.com/udacity/nd063-c2-design-for-availability-resilience-reliability-replacement-project-starter-template/blob/master/cloudformation/vpc.yaml
 
-In order to build a VPC from the YAML file, follow the steps:
+In order to build a VPC from the YAML file, we will use `create-stack.sh` which takes the following arguments:
 
-1. Services -> CloudFormation
-2. Create stack “With new resources (standard)”
-  ![Create VPC](screenshots/cloudformationCreate.png "Create VPC")
-3. Template is ready
-4. Upload a template file
-5. Click “Choose file” button
-6. Select provided YAML file
-7. Next
-8. Fill in Stack name
-9. Name the VPC
-10. Update the CIDR blocks
-11. Click Next
-12. Click Next again
-13. Click Create stack
-14. Wait for the stack to build out.  Refresh until status becomes “CREATE_COMPLETE”
-15. Observe the “Outputs” tab for the created IDs.  These will be used later.
+```
+  stack-name     - the stack name
+  template-file  - the cloudformation template file
+  parameter-file - json file with parameters
+  region         - the AWS region
+  aws-cli-opts   - extra options passed directly to create-stack/update-stack
+```
+
+1. In AWS Console go to Services -> CloudFormation
+2. Run `./create-stack.sh active vpc.yml primary.json us-west-1`
+3. Wait for the stack to build out.  Refresh until status becomes <span style="color:green">CREATE_COMPLETE</span>
+4. Observe the “Outputs” tab for the created IDs.  These will be used later.
+5. Repeat for "standby" VPC `./create-stack.sh standby vpc.yml primary.json us-west-2`
 
 Once the CloudFormation Stack has completed, you can look at the "Resources" tab to see all of the AWS resources that the stack has created.  You can see both the type of resources that have been created, as well as the AWS identifiers for those resources so that you can locate these resources in the AWS service that they are a part of.
 
